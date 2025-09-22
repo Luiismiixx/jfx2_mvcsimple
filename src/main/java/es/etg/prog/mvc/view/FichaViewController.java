@@ -42,6 +42,8 @@ public class FichaViewController {
 
     }
 
+    //Prueba
+
     private boolean camposRellenos(){
         return campoRelleno(this.txtApellidos) && campoRelleno(this.txtNombre);
     }
