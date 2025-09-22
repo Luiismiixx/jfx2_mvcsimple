@@ -4,14 +4,17 @@ import es.etg.prog.mvc.controller.InstitutoController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 
 public class FichaViewController {
 
     @FXML
     private Button btnCrear;
+
+    @FXML 
+    private Button btnListar;
 
     @FXML
     private TextField txtApellidos;
@@ -43,6 +46,7 @@ public class FichaViewController {
     }
 
     //Prueba Listar 
+    @FXML
     void listar(ActionEvent event){
         institutoController.listarAlumnos();
     }

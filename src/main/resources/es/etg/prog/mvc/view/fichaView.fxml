@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.etg.prog.mvc.view.FichaViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.etg.prog.mvc.view.FichaViewController">
    <children>
       <Label prefHeight="136.0" prefWidth="351.0" text="Crear Alumno">
          <font>
@@ -33,6 +33,11 @@
             <Button fx:id="btnCrear" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#crear" prefHeight="24.0" prefWidth="54.0" text="Crear" textAlignment="JUSTIFY" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtNombre" GridPane.columnIndex="1" />
             <TextField fx:id="txtApellidos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="btnListar" mnemonicParsing="false" onAction="#listar" text="Listar" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </children>
