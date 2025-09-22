@@ -42,7 +42,10 @@ public class FichaViewController {
 
     }
 
-    //Prueba
+    //Prueba Listar 
+    void listar(ActionEvent event){
+        institutoController.listarAlumnos();
+    }
 
     private boolean camposRellenos(){
         return campoRelleno(this.txtApellidos) && campoRelleno(this.txtNombre);

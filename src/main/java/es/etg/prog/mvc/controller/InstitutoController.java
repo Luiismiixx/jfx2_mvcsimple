@@ -62,5 +62,10 @@ public class InstitutoController extends Application{
 
         return al;
     }
+
+
+    public void listarAlumnos(){
+        model.listarAlumnos();
+    }
     
 }
