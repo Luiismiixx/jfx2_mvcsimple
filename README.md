@@ -1,15 +1,67 @@
-### Ejercicio de análisis
+### Implementacion de Listar
 
-Descarga el código del proyecto ```git@github.com:julparper/jfx2_mvcsimple.git``` Ejecuta la aplicación y analiza las siguientes cuestiones:
+He implementado el boton listar de esta manera
 
-1. ¿Qué significan los elementos del diseño?
-2. ¿Qué elementos encontramos en cada paquete?
-3. ¿Qué hace el método main de la clase App?
-4. ¿Qué hace el método start?
-5. En la vista, mirando la vista desde la aplicación scene builder, cuando se pulsa el botón ¿Qué método se ejecuta? ¿Qué hace este método?
-6. Fuerza a que la aplicación muestre un mensaje de error
-7. Crea un nuevo alumno.
-8. ¿Cómo está funcionando el modelo?
-9. Agrega un breakpoint en el método del controlador crear alumno y observa que pasa en la lista de alumnos del ```Instituto``` cada vez que se matricula un nuevo alumno.
+- En el archivo **FichaViewController.java** : 
 
->Agrega los breakpoints que estimes oportunos para entender el funcionamiento de toda la aplicación. Prueba a cambiar todo lo que estimes oportuno para observar como afectan los cambios en la aplicación.
+```java
+    @FXML 
+    private Button btnListar;
+
+    //Prueba Listar 
+    @FXML
+    void listar(ActionEvent event){
+        institutoController.listarAlumnos();
+    }
+```
+
+- En el archivo **InstitutoController.java** :
+
+```java
+    public void listarAlumnos(){
+    model.listarAlumnos();
+    }
+```
+
+> He estado debugeando el código y funciona pero no devuelve nada a la vista
+
+---
+
+### Dudas
+
+Te comento algunas dudas que me han surgido
+
+- Porque el archivo **FichaViewController.java** se llama asi y no **FichaView.java**
+- En **App.java** para que sirve esta instancia 
+  ```java
+    //Instancio el controlador
+    InstitutoController controller = new InstitutoController();
+  ```
+- En **InstitutoFactory.java** no termino de entender este código
+  ```java
+    public static Instituto obtener(){
+        return obtener(Acceso.MOCK);
+    }
+
+    public static Instituto obtener(Acceso acceso){
+        if(instituto == null){
+        inicializar(acceso);
+        }
+
+        return instituto;
+    }
+    ```
+- En **InstitutoController.java** no comprendo este código 
+  ```java
+        private Scene cargarVista(String ficheroView) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(ficheroView));
+        Parent root = (Parent)fxmlLoader.load();  
+
+        //Obtengo el controlador de la vista para pasarle una referencia al controlador - MVC:
+        FichaViewController viewController = fxmlLoader.<FichaViewController>getController();
+        viewController.setInstitutoController(this);
+        Scene scene = new Scene(root); 
+        
+        return scene;
+    }
+  ```
